@@ -1,0 +1,37 @@
+  [4;36;1mInventoryGroup Load (17.8ms)[0m   [0;1mSELECT * FROM "invGroups" LIMIT 1[0m
+  [4;36;1mInventoryGroup Load (17.7ms)[0m   [0;1mSELECT * FROM "invGroups" LIMIT 1[0m
+  [4;35;1mInventoryType Load (2.4ms)[0m   [0mSELECT * FROM "invTypes" LIMIT 1[0m
+  [4;36;1mInventoryGroup Load (2.8ms)[0m   [0;1mSELECT * FROM "invGroups" WHERE ("invGroups"."groupID" = 0) [0m
+  [4;35;1mInventoryType Load (0.0ms)[0m   [0mSQLite3::SQLException: near "where": syntax error: SELECT * FROM "invTypes" WHERE (where typeName like "Mining") LIMIT 1[0m
+  [4;36;1mInventoryType Load (20.6ms)[0m   [0;1mSELECT * FROM "invTypes" WHERE (typeName like "Mining") LIMIT 1[0m
+  [4;35;1mInventoryType Load (10.1ms)[0m   [0mSELECT * FROM "invTypes" WHERE (typeName like "Mining") LIMIT 1[0m
+  [4;36;1mInventoryGroup Load (3.0ms)[0m   [0;1mSELECT * FROM "invGroups" WHERE ("invGroups"."groupID" = 268) [0m
+  [4;35;1mInventoryGroup Load (511.5ms)[0m   [0mSELECT * FROM "invGroups" [0m
+  [4;36;1mInventoryGroup Load (18.0ms)[0m   [0;1mSELECT * FROM "invGroups" WHERE (groupName like "Industry") LIMIT 1[0m
+  [4;36;1mInventoryGroup Load (18.1ms)[0m   [0;1mSELECT * FROM "invGroups" WHERE (groupName like "Industry") LIMIT 1[0m
+  [4;35;1mInventoryGroup Load (2.8ms)[0m   [0mSELECT * FROM "invGroups" WHERE ("invGroups"."groupID" = 16) [0m
+  [4;36;1mInventoryGroup Load (18.9ms)[0m   [0;1mSELECT * FROM "invGroups" WHERE (groupName like "Industry") LIMIT 1[0m
+  [4;35;1mInventoryGroup Load (2.9ms)[0m   [0mSELECT * FROM "invGroups" WHERE ("invGroups"."groupID" = 16) [0m
+  [4;36;1mInventoryType Load (39.8ms)[0m   [0;1mSELECT * FROM "invTypes" WHERE ("invTypes".groupID = 268) [0m
+  [4;36;1mSQL (25.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mInventoryMarketGroup Load (17.2ms)[0m   [0;1mSELECT * FROM "invMarketGroups" LIMIT 1[0m
+  [4;35;1mInventoryMarketGroup Load (5.5ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups".parentGroupID = 2) [0m
+  [4;36;1mInventoryMarketGroup Load (1.9ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."marketGroupID" = 2) [0m
+  [4;35;1mInventoryMarketGroup Load (4.7ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups".parentGroupID = 800) [0m
+  [4;36;1mInventoryMarketGroup Load (1.4ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;35;1mInventoryMarketGroup Load (1.8ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;36;1mInventoryMarketGroup Load (1.9ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;35;1mInventoryMarketGroup Load (9.0ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups".parentGroupID = 2) [0m
+  [4;36;1mInventoryMarketGroup Load (4.4ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."parentGroupID" IS NULL) [0m
+  [4;35;1mInventoryMarketGroup Load (4.4ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."parentGroupID" IS NULL) [0m
+  [4;36;1mInventoryMarketGroup Load (17.2ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;35;1mInventoryMarketGroup Load (2.1ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;36;1mInventoryMarketGroup Load (1.9ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;35;1mInventoryMarketGroup Load (1.8ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;36;1mInventoryMarketGroup Load (1.8ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE (parentGroupID IS NULL) LIMIT 1[0m
+  [4;36;1mInventoryMarketGroup Load (20.7ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."parentGroupID" IS NULL) [0m
+  [4;35;1mInventoryMarketGroup Load (11.9ms)[0m   [0mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."parentGroupID" IS NULL) [0m
+  [4;36;1mInventoryMarketGroup Load (5.9ms)[0m   [0;1mSELECT * FROM "invMarketGroups" WHERE ("invMarketGroups"."parentGroupID" IS NULL) [0m
