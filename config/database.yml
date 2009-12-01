@@ -23,6 +23,6 @@ production:
 
 eve_dump:
   adapter: sqlite3
-  database: db/apo15-sqlite3-v1.db
+  database: db/dom100-sqlite3-v1.db
   pool: 5
   timeout: 5000
