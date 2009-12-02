@@ -1,4 +1,4 @@
-class Activity < EveDump
+class EveActivity < EveDb
   set_table_name 'ramActivities'
   set_primary_keys :activityID
   
