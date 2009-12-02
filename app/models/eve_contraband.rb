@@ -1,8 +1,8 @@
-class EveDump::Contraband < EveDump::Db
+class EveContraband < EveDb
   set_table_name 'invContrabandTypes'
   set_primary_keys :factionID, :typeID
 
   belongs_to :faction, :foreign_key => :factionID
   belongs_to :inventory_type, :foreign_key => :typeID, 
-    :class_name => "EveDump::Type"
+    :class_name => "EveType"
 end

@@ -1,10 +1,10 @@
-class EveDump::MarketGroup < EveDump
+class EveMarketGroup < EveDb
   set_table_name "invMarketGroups"
   set_primary_key "marketGroupID"
 
   acts_as_tree :foreign_key => 'parentGroupID'
 
-  has_many :inventory_types, :class_name => "EveDump::Type", 
+  has_many :inventory_types, :class_name => "EveType", 
         :foreign_key => 'marketGroupID'
 
   
