@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091130115622) do
+ActiveRecord::Schema.define(:version => 20091202125308) do
+
+  create_table "api_keys", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "api_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "characters", :force => true do |t|
+    t.integer  "eve_id",     :null => false
+    t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recache_stores", :force => true do |t|
     t.string   "request_hash"
