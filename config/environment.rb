@@ -30,10 +30,6 @@ Rails::Initializer.run do |config|
   config.gem "composite_primary_keys"
   config.gem "eaal"
   
-  # configure EAAL's memory cache
-  require 'eaal'
-  EAAL.cache = EAAL::Cache::MemcachedCache.new()
-
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
