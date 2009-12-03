@@ -7,6 +7,7 @@ file "#{RAILS_ROOT}/db/#{DBDUMP}" => ["#{RAILS_ROOT}/tmp/#{DBDUMP}.bz2"] do |t|
     sh "bzip2 -dc #{t.prerequisites.join(" ")} > #{t.name}"
   rescue
     rm t.name
+    raise
   end
 end
 
@@ -15,6 +16,7 @@ file "#{RAILS_ROOT}/tmp/#{DBDUMP}.bz2" => ["#{RAILS_ROOT}/tmp"] do |t|
     sh "curl -o #{t.name} #{DBDUMPURL}"
   rescue
     rm t.name
+    raise
   end
 end
 

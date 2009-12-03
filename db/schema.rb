@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091202125308) do
+ActiveRecord::Schema.define(:version => 20091203200127) do
 
   create_table "api_keys", :force => true do |t|
     t.integer  "user_id"
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(:version => 20091202125308) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "recache_stores", :force => true do |t|
-    t.string   "request_hash"
-    t.text     "data"
-    t.datetime "cached_until"
-  end
-
-  add_index "recache_stores", ["request_hash"], :name => "index_recache_stores_on_request_hash"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
