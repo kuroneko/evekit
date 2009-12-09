@@ -43,6 +43,7 @@ class ApiKeysController < ApplicationController
 
     if @api_key.save
       flash[:notice] = 'ApiKey was successfully created.'
+      @api_key.poll_entities
       redirect_to(@api_key)
     else
       render :action => "new"
@@ -55,6 +56,7 @@ class ApiKeysController < ApplicationController
 
     if @api_key.user == @current_user && @api_key.update_attributes(params[:api_key])
       flash[:notice] = 'ApiKey was successfully updated.'
+      @api_key.poll_entities
       redirect_to(@api_key)
     else
       render :action => "edit"

@@ -1,0 +1,6 @@
+<h1>Entities for <%= h(@current_user.login) %></h1>
+<ul>
+<% @entities.each { |e| %>
+  <li><%= link_to e.name, :action => :show, :id => e.id %></li>  
+<% } %>
+</ul>

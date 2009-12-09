@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091209090640) do
+ActiveRecord::Schema.define(:version => 20091209125514) do
 
   create_table "api_keys", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -21,9 +21,12 @@ ActiveRecord::Schema.define(:version => 20091209090640) do
 
   add_index "api_keys", ["user_id"], :name => "index_api_keys_on_user_id"
 
-  create_table "characters", :force => true do |t|
-    t.integer  "eve_id",     :null => false
-    t.string   "name",       :null => false
+  create_table "entities", :force => true do |t|
+    t.integer  "user_id",                             :null => false
+    t.integer  "api_key_id",                          :null => false
+    t.string   "type",       :default => "character", :null => false
+    t.string   "name"
+    t.datetime "last_poll"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

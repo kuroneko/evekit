@@ -3,26 +3,31 @@ class ApiKey < ActiveRecord::Base
   validates_presence_of :api_key, :on => :create, :message => "can't be blank"
   
   belongs_to :user
+  has_many :entities
   
   def to_api
     return EAAL::API.new(self.eve_id, self.api_key)
   end
   
-  def characters
+  def poll_entities
+    ent_list = self.entities
     api = self.to_api
-    charlist = api.Characters
-    reslist = []
-    charlist.characters.each do |char|
-      charproxy = Character.find(:first, :conditions => {:eve_id => char.characterID})
-      if nil == charproxy then
-        charproxy = Character.new do |c|
-          c.eve_id = char.characterID
-          c.name = char.name
-          c.save
+    acct_chars = api.Characters.characters
+    
+    acct_chars.each { |e|
+      if not ent_list.map { |m| m.eve_id }.include?(e.characterID)
+        newent = Character.new do |c|
+          c.user = self.user
+          c.api_key = self
+          c.name = e.name
+          c.save!
         end
       end
-      reslist << charproxy
-    end
-    return reslist
+    }
+    ent_list.each { |e|
+      if not acct_chars.map { |m| m.characterID }.include?(e.eve_id)
+        e.destroy
+      end
+    }
   end
 end

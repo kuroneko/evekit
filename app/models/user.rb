@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   end
   
   has_many :api_keys
+  has_many :entities
 end
