@@ -53,15 +53,11 @@ class ApiKeysController < ApplicationController
   def update
     @api_key = ApiKey.find(params[:id])
 
-    respond_to do |format|
-      if @api_key.user == @current_user && @api_key.update_attributes(params[:api_key])
-        flash[:notice] = 'ApiKey was successfully updated.'
-        format.html { redirect_to(@api_key) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @api_key.errors, :status => :unprocessable_entity }
-      end
+    if @api_key.user == @current_user && @api_key.update_attributes(params[:api_key])
+      flash[:notice] = 'ApiKey was successfully updated.'
+      redirect_to(@api_key)
+    else
+      render :action => "edit"
     end
   end
 
