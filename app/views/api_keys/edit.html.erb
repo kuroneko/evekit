@@ -1,0 +1,20 @@
+<h1>Editing api_key</h1>
+
+<% form_for(@api_key) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :eveuser_id %><br />
+    <%= f.text_field :eveuser_id %>
+  </p>
+  <p>
+    <%= f.label :api_key %><br />
+    <%= f.text_field :api_key %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @api_key %> |
+<%= link_to 'Back', api_keys_path %>
