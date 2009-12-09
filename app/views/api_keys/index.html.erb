@@ -2,13 +2,13 @@
 
 <table>
   <tr>
-    <th>Eveuser</th>
-    <th>Api key</th>
+    <th>User ID</th>
+    <th>Key</th>
   </tr>
 
 <% @api_keys.each do |api_key| %>
   <tr>
-    <td><%=h api_key.eveuser_id %></td>
+    <td><%=h api_key.eve_id %></td>
     <td><%=h api_key.api_key %></td>
     <td><%= link_to 'Show', api_key %></td>
     <td><%= link_to 'Edit', edit_api_key_path(api_key) %></td>

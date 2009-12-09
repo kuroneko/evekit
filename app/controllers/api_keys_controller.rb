@@ -1,40 +1,29 @@
 class ApiKeysController < ApplicationController
-	before_filter :require_user, :only => [:index, :show, :new, :edit, :create, :destroy]
-	
-	# GET /api_keys
-  	# GET /api_keys.xml
-	def index
-		@user = current_user
-		@api_keys = @user.api_keys
-		
-		respond_to do |format|
-      		format.html # index.html.erb
-      		format.xml  { render :xml => @api_keys }
-    	end
-  	end
+  before_filter :require_user
 
-  	# GET /api_keys/1
-  	# GET /api_keys/1.xml
-  	def show
-	    @api_key = ApiKey.find(params[:id])
-	    respond_to do |format|
-		    if @api_key.user == current_user then
-		      	format.html # show.html.erb
-	    	  	format.xml  { render :xml => @api_key }
-    	  	else
-    	  		@api_key = ApiKey.new()
-    	  		flash[:notice] = 'You do not have permission to view this API Key'
-		        format.html { render :action => "new" }
-        		format.xml  { render :xml => @api_key.errors, :status => :unprocessable_entity }
-        	end
-	    end
-  	end
+  # GET /api_keys
+  def index
+    @user = @current_user
+    @api_keys = @user.api_keys
+    render
+  end
+
+  # GET /api_keys/1
+  def show
+    @api_key = ApiKey.find(params[:id])
+    if @api_key.user == @current_user then
+      render
+    else
+      flash[:notice] = 'You do not have permission to view this API Key'
+      redirect_to(:index);
+    end
+  end
 
   # GET /api_keys/new
   # GET /api_keys/new.xml
   def new
     @api_key = ApiKey.new
-	@api_key.user = current_user
+    @api_key.user = @current_user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @api_key }
@@ -47,31 +36,25 @@ class ApiKeysController < ApplicationController
   end
 
   # POST /api_keys
-  # POST /api_keys.xml
   def create
     @api_key = ApiKey.new(params[:api_key])
     # force key ownership.
-    @api_key.user = current_user
-    
-    respond_to do |format|
-      if @api_key.save
-        flash[:notice] = 'ApiKey was successfully created.'
-        format.html { redirect_to(@api_key) }
-        format.xml  { render :xml => @api_key, :status => :created, :location => @api_key }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @api_key.errors, :status => :unprocessable_entity }
-      end
+    @api_key.user = @current_user
+
+    if @api_key.save
+      flash[:notice] = 'ApiKey was successfully created.'
+      redirect_to(@api_key)
+    else
+      render :action => "new"
     end
   end
 
   # PUT /api_keys/1
-  # PUT /api_keys/1.xml
   def update
     @api_key = ApiKey.find(params[:id])
 
     respond_to do |format|
-      if @api_key.user == current_user && @api_key.update_attributes(params[:api_key])
+      if @api_key.user == @current_user && @api_key.update_attributes(params[:api_key])
         flash[:notice] = 'ApiKey was successfully updated.'
         format.html { redirect_to(@api_key) }
         format.xml  { head :ok }
@@ -83,21 +66,15 @@ class ApiKeysController < ApplicationController
   end
 
   # DELETE /api_keys/1
-  # DELETE /api_keys/1.xml
   def destroy
     @api_key = ApiKey.find(params[:id])
-    
 
-    respond_to do |format|
-		if (@api_key.user == current_user)
-    		@api_key.destroy
-      		format.html { redirect_to(api_keys_url) }
-			format.xml  { head :ok }
-		else
-			flash[:notice] = 'No permission to delete ApiKey'
-      		format.html { redirect_to(api_keys_url) }
-			format.xml  { head :failed }
-		end		
+    if (@api_key.user == @current_user)
+      @api_key.destroy
+      redirect_to(api_keys_url)
+    else
+      flash[:notice] = 'No permission to delete API Key'
+      redirect_to(api_keys_url)
     end
   end
 end
