@@ -5,7 +5,7 @@ class ApiKey < ActiveRecord::Base
   belongs_to :user
   
   def to_api
-    return EAAL::API.new(self.user_id, self.api_key)
+    return EAAL::API.new(self.eve_id, self.api_key)
   end
   
   def characters

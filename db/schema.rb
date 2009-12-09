@@ -12,8 +12,9 @@
 ActiveRecord::Schema.define(:version => 20091209090640) do
 
   create_table "api_keys", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "api_key"
+    t.integer  "user_id",    :null => false
+    t.integer  "eve_id",     :null => false
+    t.string   "api_key",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
