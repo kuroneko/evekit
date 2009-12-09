@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091203200127) do
+ActiveRecord::Schema.define(:version => 20091209090640) do
 
   create_table "api_keys", :force => true do |t|
     t.integer  "user_id"
@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(:version => 20091203200127) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "api_keys", ["user_id"], :name => "index_api_keys_on_user_id"
 
   create_table "characters", :force => true do |t|
     t.integer  "eve_id",     :null => false
