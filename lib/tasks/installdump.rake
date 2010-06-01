@@ -1,5 +1,5 @@
-DBDUMP = "dom100-sqlite3-v1.db"
-DBDUMPURL = "http://eve.no-ip.de/dom100/dom100-sqlite3-v1.db.bz2"
+DBDUMP = "tyr10-sqlite3-v1.db"
+DBDUMPURL = "http://eve.no-ip.de/tyr10/tyr10-sqlite3-v1.db.bz2"
 
 # decompress the dump from the tmp directory into the database directory
 file "#{RAILS_ROOT}/db/#{DBDUMP}" => ["#{RAILS_ROOT}/tmp/#{DBDUMP}.bz2"] do |t|
