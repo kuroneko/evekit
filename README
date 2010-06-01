@@ -7,6 +7,12 @@ it of some use.
 
 There is no documentation - please look at the source.
 
+Rails Plugins
+-------------
+This tree includes two plugins which are licensed separately to the main tree.
+They are active_delegate and acts_as_tree.  Please consult their directories
+(under vendor/plugins) for their licensing terms and copyright information.
+
 LICENSE
 -------
 Copyright 2009-2010 Christopher Collins. All rights reserved.
